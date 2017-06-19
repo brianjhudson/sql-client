@@ -15,7 +15,7 @@ export function addMessages(messages) {
 }
 
 // Reducer
-export function messageReducer(state = initialState, action) {
+export default function messageReducer(state = initialState, action) {
    switch (action.type) {
       case ADD_MESSAGES:
          const newMessages = state.messages.concat(action.messages)
