@@ -1,0 +1,21 @@
+.login.container-fluid {
+   height: 100vh;
+   padding-top: 15%;
+   text-align: center;
+}
+.login .panel-heading {
+   background-color: #222;
+   color: #fff;
+}
+.login .panel-body {
+   padding: 10%;
+   background-color: #bbb;
+}
+
+.login .panel-body div {
+   margin: 5%;
+}
+
+.github-login, .guest-login {
+   width: 80%;
+}
