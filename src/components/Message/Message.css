@@ -1,0 +1,20 @@
+.message {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.message-image-container {
+   flex: 1;
+}
+.message-profile-image {
+   width: 100%;
+   height: auto;
+}
+.message-message-container {
+   flex: 4;
+   margin-left: 10px;
+}
+.message-info {
+   display: flex;
+   justify-content: space-between
+}

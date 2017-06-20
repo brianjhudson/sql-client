@@ -7,11 +7,10 @@ import './MessageContainer.css'
 
 export default function MessageContainer(props) {
    return (
-      <div className="message-container">
-         <h1>MessageContainer</h1>
-         <MessageList messages={props.messages} />
-         <MessageInput emitMessage={props.emitMessage} />
-      </div>
+         <div className="message-container col-xs-12 col-sm-4 col-md-3">
+            <MessageList messages={props.messages} />
+            <MessageInput emitMessage={props.emitMessage} />
+         </div>
    )
 
 }

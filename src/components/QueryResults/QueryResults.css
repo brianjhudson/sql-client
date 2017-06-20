@@ -1,0 +1,5 @@
+.query-results {
+   height: calc(70vh - 50px);
+   overflow-y: scroll;
+   overflow-x: scroll;
+}

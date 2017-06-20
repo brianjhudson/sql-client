@@ -1,0 +1,12 @@
+.message-container {
+   height: calc(100vh - 50px);
+}
+
+.message-list {
+   height: 90%;
+   overflow: scroll;
+}
+
+.message-form{
+   height: 10%;
+}

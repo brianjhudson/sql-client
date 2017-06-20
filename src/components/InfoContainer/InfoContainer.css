@@ -1,0 +1,13 @@
+.info-container {
+   height: calc(100vh - 50px)
+}
+
+.table-list {
+   height: 40vh;
+   overflow: scroll;
+}
+
+.history {
+   height: calc(60vh - 50px);
+   overflow: scroll;
+}

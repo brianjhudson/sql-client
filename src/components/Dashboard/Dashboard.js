@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
+import InfoContainer from '../InfoContainer/InfoContainer'
+import QueryContainer from '../QueryContainer/QueryContainer'
 import MessageContainer from '../MessageContainer/MessageContainer'
 
 import './Dashboard.css'
@@ -28,17 +30,26 @@ class Dashboard extends Component {
    }
 
    emitMessage(message) {
-      console.log("Are you here?")
-      console.log(message)
-      console.log(this.props)
       socket.emit('postMessage', {user_id: this.props.user.id, message_text: message})
    }
 
    render() {
       return (
-         <div>
-            <h1>Dashboard</h1>
-            <MessageContainer messages={this.state.messages} emitMessage={this.emitMessage} />
+         <div className="container-fluid">
+            <div className="row">
+               <InfoContainer 
+                  messages={this.state.messages} 
+                  emitMessage={this.emitMessage} 
+               />
+               <QueryContainer 
+                  messages={this.state.messages} 
+                  emitMessage={this.emitMessage} 
+               />
+               <MessageContainer 
+                  messages={this.state.messages} 
+                  emitMessage={this.emitMessage} 
+               />
+            </div>
          </div>
       )
    }
