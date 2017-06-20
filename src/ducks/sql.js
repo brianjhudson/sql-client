@@ -21,7 +21,7 @@ const ADD_DATA = 'sql/ADD_DATA'
 export function getTables() {
    return dispatch => {
       dispatch(fetchingData())
-      return axios.get('http://localhost:4000/api/sql/table')
+      return axios.get('/api/sql/table')
       .then(result => {
          dispatch(fetchedData('tables', result.data));
       })
@@ -35,7 +35,7 @@ export function postQuery(query) {
    return dispatch => {
       dispatch(addData('history', query))
       dispatch(fetchingData())
-      return axios.post('http://localhost:4000/api/sql/query', {query: query})
+      return axios.post('/api/sql/query', {query: query})
       .then(result => {
          dispatch(fetchedData('fields', result.data.fields))
          dispatch(fetchedData('results', result.data.rows))
