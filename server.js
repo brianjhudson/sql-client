@@ -7,6 +7,6 @@ app.get('*', (req, res) => {
    res.sendFile(__dirname + '/build/index.html')
 })
 
-app.listen(config.port || 5000, () => {
-   console.log(`Listening on ${config.port || 3000}`)
+app.listen(5000, () => {
+   console.log(`Listening on ${5000}`)
 })
