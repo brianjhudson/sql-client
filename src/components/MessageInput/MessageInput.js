@@ -24,9 +24,11 @@ export default class MessageInput extends Component {
 
    render() {
       return (
+         <div className="row">
          <form onSubmit={this.submitForm} className="message-form">
             <input type="text" placeholder="What's on your mind?" value={this.state.message} onChange={this.changeMessage} />
          </form>
+         </div>
       )
    }
 }

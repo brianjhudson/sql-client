@@ -3,13 +3,10 @@
    height: 10%;
    display: flex;
    align-items: center;
-   justify-content: center;
-   background: #222;
 }
 
 .message-form input {
-   width: 90%;
+   width: 95%;
    padding: 1em;
-   border-radius: 1em;
-   border: 1px solid #222;
+   border-radius: 5px;
 }
