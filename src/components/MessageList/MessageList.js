@@ -14,7 +14,7 @@ export default class MessageList extends Component {
       // this.refs.list.scrollTop(this.refs.list.scrollHeight)
       const messages = this.props.messages.map(message => ((<Message key={message.id} message={message}/>)))
       return (
-         <div className="message-list" ref="list">
+         <div className="row message-list" ref="list">
             {messages}
          </div>
       )
