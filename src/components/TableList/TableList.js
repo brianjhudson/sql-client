@@ -11,7 +11,6 @@ export default function TableList(props) {
    })
    return (
       <div>
-         <h3>Tables</h3>
          {tables}
       </div>
    )
@@ -24,7 +23,7 @@ function Columns (props) {
       )
    })
    return (
-      <ul>
+      <ul className="table-list">
          {columns}
       </ul>
 
