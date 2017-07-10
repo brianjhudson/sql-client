@@ -15,11 +15,27 @@ const FETCHED_DATA = 'user/FETCHED_DATA'
 export function getUser() {
    return dispatch => {
       dispatch(fetchingData());
-      return axios.get('/auth/login')
+      return axios.get('http://localhost:4000/auth/login/')
       .then(result => {
-         dispatch(fetchedData('user', result.data))
+         if (result.data && result.data.github_username) {
+            dispatch(fetchedData('user', result.data))
+         }
       })
       .catch(err => {
+         dispatch(fetchError(err))
+      })
+   }
+}
+
+export function logoutUser() {
+   return dispatch => {
+      dispatch(fetchingData())
+      return axios.get('http://localhost:4000/auth/logout')
+      .then(result => {
+         dispatch(fetchedData('user', initialState.user))
+      })
+      .catch(err => {
+         console.log(err)
          dispatch(fetchError(err))
       })
    }
@@ -48,7 +64,6 @@ function fetchedData(key, data) {
 }
 
 export default function sqlReducer(state = initialState, action) {
-   console.log(action.type)
    switch(action.type) {
       case FETCHING_DATA: 
          return Object.assign({}, state, {fetchingData: true})
