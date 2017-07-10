@@ -10,6 +10,14 @@ import './InfoContainer.css'
 class InfoContainer extends Component {
    constructor() {
       super()
+      this.state = {
+         tableView: true
+      }
+      this.viewTables = this.viewTables.bind(this)
+   }
+
+   viewTables(tableView) {
+      this.setState({tableView})
    }
    componentDidMount() {
       this.props.getTables()
@@ -17,8 +25,20 @@ class InfoContainer extends Component {
    render() {
       return (
          <div className="info-container col-xs-12 col-sm-4 col-md-3">
-            <TableList tables={this.props.sql.tables}/>
-            <History history={this.props.sql.history} postQuery={this.props.postQuery}/>
+            <div className="row">
+               <ul className="nav nav-pills">
+                  <li className={this.state.tableView ? "active": ""} onClick={() => this.viewTables(true)}><a>Tables</a></li>
+                  <li className={!this.state.tableView ? "active": ""} onClick={() => this.viewTables(false)}><a>History</a></li>
+               </ul>
+            </div>
+            <div className="row info-container-view">
+               {
+                  this.state.tableView
+                  ? <TableList tables={this.props.sql.tables}/>
+                  :<History history={this.props.sql.history} postQuery={this.props.postQuery}/>
+               }
+            </div>
+            
          </div>
       )
    }
