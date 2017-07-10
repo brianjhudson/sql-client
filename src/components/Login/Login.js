@@ -15,7 +15,7 @@ export default function() {
                   <div className="panel-body">
                      <h4>Please login with Github to save your work</h4>
                      <div className="row">
-                        <a className="github-login btn btn-default" href="http://brianjhudson.com/auth/github">
+                        <a className="github-login btn btn-default" href="http://localhost:4000/auth/github">
                            <h4>Login with Github</h4>
                         </a>                        
                      </div>
