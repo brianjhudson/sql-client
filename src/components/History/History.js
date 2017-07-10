@@ -1,17 +1,28 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-export default function History(props) {
+import './History.css'
+
+function History(props) {
    const history = props.history.map((query, index) => {
+      const heading = query.split(" ")[0]
       return (
-         <li key={index} onClick={() => {props.postQuery(query)}}>{query}</li>
+         <div className={props.currentQuery === query? "row history-item active": "row history-item"} key={index} onClick={() => {props.postQuery(query)}}>
+            <h4>{heading}</h4>
+            <li>{query}</li>
+         </div>
       )
    })
    return (
       <div>
-         <h3>History</h3>
-         <ul>
+         <ul className="history-list">
             {history}
          </ul>
       </div>
    )
 }
+
+function mapStateToProps(state) {
+   return {currentQuery: state.sql.currentQuery}
+}
+export default connect(mapStateToProps, {})(History)

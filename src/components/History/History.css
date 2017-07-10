@@ -1,0 +1,15 @@
+.history-list {
+   list-style: none;
+}
+
+.history-item {
+   cursor: pointer;
+}
+
+.history-item h4 {
+   margin-left: -10px;
+}
+
+.active {
+   color: #337AB7;
+}
