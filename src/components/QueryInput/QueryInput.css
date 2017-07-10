@@ -1,15 +1,21 @@
 .query-input-container {
-   height: 30vh;
+   height: 40vh;
    position: relative;
    padding: 1em;
 }
 .query-input-container button {
    position: absolute;
+   top: 0;
    right: 0;
+   height: 40px;
    z-index: 2;
 }
 .query-input-container textarea {
    width: 100%;
-   height: 25vh;
+   margin-top: 35px;
+   height: calc(40vh - 50px);
    overflow: scroll;
+   padding: 0 10px;
+   font-family: monospace;
+   font-size: 1.25em;
 }

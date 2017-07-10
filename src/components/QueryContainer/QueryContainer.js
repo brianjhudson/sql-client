@@ -17,11 +17,17 @@ class QueryContainer extends Component {
       this.props.postQuery(query)
    }
    render() {
-      console.log(this.props)
+      const {results, fields, rowCount, command, error, currentQuery} = this.props.sql
       return (
          <div className="query-container col-xs-12 col-sm-4 col-md-6">
-            <QueryInput submitQuery={this.submitQuery} />
-            <QueryResults results={this.props.sql.results} fields={this.props.sql.fields} />
+            <QueryInput submitQuery={this.submitQuery} currentQuery={currentQuery} />
+            <QueryResults 
+               command={command}
+               rowCount={rowCount}
+               fields={fields} 
+               results={results} 
+               error={error}
+            />
          </div>
       )
    }

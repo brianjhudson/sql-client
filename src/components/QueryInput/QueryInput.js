@@ -11,8 +11,13 @@ export default class QueryInput extends Component {
       this.changeQuery = this.changeQuery.bind(this)
    }
 
+   componentWillReceiveProps(nextProps) {
+      if (nextProps.currentQuery !== this.state.query) {
+         this.setState({query: nextProps.currentQuery})
+      }
+   }
+
    changeQuery(e) {
-      console.log(e.target)
       this.setState({query: e.target.value})
    }
 
@@ -22,7 +27,7 @@ export default class QueryInput extends Component {
             <div className="row">
                <button className="btn btn-primary" onClick={() => this.props.submitQuery(this.state.query)}>Submit</button>
             </div>
-            <div className="row">
+            <div className="row textarea-container">
                <textarea
                   placeholder="Enter your query here"
                   value={this.state.query}
