@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
+import {getUser} from '../../ducks/user'
+
 import InfoContainer from '../InfoContainer/InfoContainer'
 import QueryContainer from '../QueryContainer/QueryContainer'
 import MessageContainer from '../MessageContainer/MessageContainer'
 
 import './Dashboard.css'
-const socket = window.io('/')
+const socket = window.io('http://localhost:4000/')
 class Dashboard extends Component {
    constructor() {
       super()
@@ -18,6 +20,7 @@ class Dashboard extends Component {
    }
 
    componentDidMount() {
+      this.props.getUser()
       socket.emit('retrieveMessages')
       socket.on('newMessages', data => {
          const newMessages = this.state.messages.concat(data)
@@ -26,7 +29,6 @@ class Dashboard extends Component {
    }
 
    componentWillReceiveProps(nextProps) {
-
    }
 
    emitMessage(message) {
@@ -61,6 +63,6 @@ function mapStateToProps(state) {
    }
 }
 const mapDispatchToProps = {
-
+   getUser
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
