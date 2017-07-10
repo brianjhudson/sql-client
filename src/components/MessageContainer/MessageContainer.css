@@ -1,9 +1,20 @@
 .message-container {
-   height: calc(100vh - 50px);
+   height: calc(100vh - 90px);
+}
+
+.message-container .nav-pills {
+   height: 40px;
+   position: relative;
+}
+.message-container .nav-pills li {
+   position: absolute;
+   right: 0;
+
 }
 
 .message-list {
-   height: 90%;
+   margin-top: 10px;
+   height: calc(90% - 10px);
    overflow: scroll;
 }
 
