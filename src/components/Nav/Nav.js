@@ -24,11 +24,11 @@ function Nav(props) {
                   {
                      props.user.github_username === 'guestuser'
                      ?
-                        <a className="auth-link" href="http://localhost:4000/auth/github">
+                        <a className="auth-link" href="/auth/github">
                            <img src={props.user.github_avatar} alt=""/>
                         </a>
                      :
-                        <a className="auth-link" onClick={this.props.logoutUser}>
+                        <a className="auth-link" onClick={props.logoutUser}>
                            <img src={props.user.github_avatar} alt=""/>
                         </a>
 

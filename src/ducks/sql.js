@@ -26,7 +26,7 @@ const UPDATE_QUERY = 'sql/UPDATE_QUERY'
 export function getTables() {
    return dispatch => {
       dispatch(fetchingData())
-      return axios.get('http://localhost:4000/api/sql/table')
+      return axios.get('/api/sql/table')
       .then(result => {
          dispatch(fetchedData('tables', result.data));
       })
@@ -41,7 +41,7 @@ export function postQuery(query) {
    return dispatch => {
       dispatch(fetchingData())
       dispatch(updateQuery(query))
-      return axios.post('http://localhost:4000/api/sql/query', {query: query})
+      return axios.post('/api/sql/query', {query: query})
       .then(result => {
          if (result.data.error) {
             dispatch(fetchError(result.data))

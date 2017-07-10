@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Initial State
 const initialState = {
-   user: {id: 22, github_username: "guestuser", first_name: "Guest", last_name: "User", github_avatar: "https://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg"}
+   user: {github_avatar: "https://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg"}
 }
 
 // Actions
@@ -15,7 +15,7 @@ const FETCHED_DATA = 'user/FETCHED_DATA'
 export function getUser() {
    return dispatch => {
       dispatch(fetchingData());
-      return axios.get('http://localhost:4000/auth/login/')
+      return axios.get('/auth/login/')
       .then(result => {
          if (result.data && result.data.github_username) {
             dispatch(fetchedData('user', result.data))
@@ -30,7 +30,7 @@ export function getUser() {
 export function logoutUser() {
    return dispatch => {
       dispatch(fetchingData())
-      return axios.get('http://localhost:4000/auth/logout')
+      return axios.get('/auth/logout')
       .then(result => {
          dispatch(fetchedData('user', initialState.user))
       })

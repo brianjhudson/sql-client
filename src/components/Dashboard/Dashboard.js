@@ -8,7 +8,7 @@ import QueryContainer from '../QueryContainer/QueryContainer'
 import MessageContainer from '../MessageContainer/MessageContainer'
 
 import './Dashboard.css'
-const socket = window.io('http://localhost:4000/')
+const socket = window.io('/')
 class Dashboard extends Component {
    constructor() {
       super()
