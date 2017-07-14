@@ -4,18 +4,16 @@
 
 .message-container .nav-pills {
    height: 40px;
-   position: relative;
-}
-.message-container .nav-pills li {
-   position: absolute;
-   right: 0;
-
 }
 
-.message-list {
+.message-list, iframe {
    margin-top: 10px;
    height: calc(90% - 10px);
    overflow: scroll;
+}
+
+iframe {
+   overflow-x: hidden;
 }
 
 .message-form{

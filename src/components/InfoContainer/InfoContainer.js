@@ -26,7 +26,7 @@ class InfoContainer extends Component {
       return (
          <div className="info-container col-xs-12 col-sm-4 col-md-3">
             <div className="row">
-               <ul className="nav nav-pills">
+               <ul className="nav nav-tabs nav-justified">
                   <li className={this.state.tableView ? "active": ""} onClick={() => this.viewTables(true)}><a>Tables</a></li>
                   <li className={!this.state.tableView ? "active": ""} onClick={() => this.viewTables(false)}><a>History</a></li>
                </ul>
