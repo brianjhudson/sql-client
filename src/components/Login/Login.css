@@ -1,22 +1,92 @@
 .login.container-fluid {
-   height: 100vh;
-   padding-top: 15%;
+   height: calc(100vh - 50px);
    text-align: center;
-   background-image: url('./background.png')
+   background-image: url('./background-desk.jpg');
+   background-position: center top;
+   background-size: cover; 
 }
-.login .panel-heading {
-   background-color: #222;
+.login header {
+   height: calc(100vh - 50px);
    color: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
-.login .panel-body {
-   padding: 10%;
-   background-color: #bbb;
+.login .header-title {
+   font-family: "Patua One", cursive
+}
+.login .header-title-postgres {
+   color: #007EFD;
+}
+.login .header-subtitle {
+   background: hsla(0, 0%, 0%, 0.5);
+   animation: stretch 1s linear forwards;
+}
+.login .header-subtitle-typing {
+   display: inline-block;
+   font-size: 40px;
+   white-space: nowrap;
+   overflow: hidden;
+   animation: 3s type steps(21, end)
+}
+.login .header-subtitle-typing::after {
+   content: "";
+   border-left: 2px solid #fff;
+    animation: 1s blink 3s infinite; 
+}
+.login .header-subtitle-keyword {
+   color: orangered;
+}
+.login .header-login-button-container {
+   margin-top: 20px;
+   text-align: center;
+}
+.login .btn.btn-default {
+   background-color: orangered;
+   border: none;
+   color: #fff;
+   padding: 10px;
+   width: 200px
 }
 
-.login .panel-body div {
-   margin: 5%;
+@media only screen and (max-width: 599px) {
+   .login .header-title {
+      font-size: 1.25em;
+   }
+   .login .header-subtitle {
+      font-size: 1.15em;
+   }
+   .login .header-subtitle-typing{
+      font-size: 25px;
+   }
 }
-
-.github-login, .guest-login {
-   width: 80%;
+@keyframes stretch {
+   from {
+      transform: scaleX(0)
+   }
+   to {
+      transform: scaleX(1)
+   }
+}
+@keyframes type {
+   0% {
+      width: 0;
+      opacity: 0;
+   }
+   33% {
+      width: 0;
+      opacity: 1;
+   }
+   100% {
+      width: 100%;
+      opacity: 1;
+   }
+}
+@keyframes blink {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
 }
