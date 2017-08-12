@@ -5,7 +5,7 @@ import {logoutUser} from '../../ducks/user'
 
 import './Nav.css'
 
-function Nav(props) {
+function Nav({logoutUser, github_username, github_avatar, match}) {
    return (
       <div className="navbar navbar-inverse">
          <div className="container-fluid">
@@ -16,23 +16,35 @@ function Nav(props) {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                </button>
-               <Link className="navbar-brand" to="/">PG Playground</Link>
+               <Link className="navbar-brand" to="/">
+                  <div className="brand-logo"></div>
+                  <div className="sr-only">PG Playground</div>
+               </Link>
             </div>
             <div className="collapse navbar-collapse" id="mobile-nav">
                <ul className="nav navbar-nav navbar-right">
-                  <li className="profile-container dropdown">
-                  {
-                     props.user.github_username === 'guestuser'
-                     ?
-                        <a className="auth-link" href="/auth/github">
-                           <img src={props.user.github_avatar} alt=""/>
+                  <li className="profile-container dropdown">          
+                     {
+                        github_username === 'guestuser'
+                        ?
+                        <a href="/auth/github">
+                           <div className="hidden-xs login-container" style={{backgroundImage: github_avatar}}>
+                              <div className="login-link">
+                                 <p>Login</p>
+                              </div>
+                           </div>
+                           <div className="visible-xs">Login</div>
                         </a>
-                     :
-                        <a className="auth-link" onClick={props.logoutUser}>
-                           <img src={props.user.github_avatar} alt=""/>
+                        :
+                        <a onClick={e => {e.preventDefault(); logoutUser()}} >
+                           <div className="hidden-xs login-container" style={{backgroundImage: github_avatar}}>
+                              <div className="login-link">
+                                 <p>Logout</p>
+                              </div>
+                           </div>
+                           <div className="visible-xs">Logout</div>                      
                         </a>
-
-                  }
+                     }         
                   </li>
                </ul>
             </div>
@@ -41,11 +53,16 @@ function Nav(props) {
    )
 }
 
-function mapStateToProps(state) {
-   return state.user
+const mapStateToProps = ({user}) => {
+   return {
+      github_avatar: user.user.github_avatar,
+      github_username: user.user.github_username
+   }
 }
 
-const mapDispatchToProps = {
-   logoutUser
+const mapDispatchToProps = dispatch => {
+   return {
+      logoutUser: () => {dispatch(logoutUser)}
+   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Nav)
