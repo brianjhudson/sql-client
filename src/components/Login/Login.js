@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router'
 import {connect} from 'react-redux'
 import {getUser} from '../../ducks/user'
+import {showLoginModal} from '../../ducks/modal'
 
 import LoginModal from '../LoginModal/LoginModal'
 import './Login.css'
@@ -14,12 +15,12 @@ class Login extends Component {
    }
 
    componentWillReceiveProps(nextProps) {
-      console.log(nextProps)
       if (nextProps.user.id && nextProps.user.github_username !== 'guestuser') {
          this.props.history.push('/dashboard')
       }
    }
    render() {
+      const {viewLoginModal, showLoginModal} = this.props
       return (
          <div className="login container-fluid">
             <div className="row">
@@ -35,21 +36,21 @@ class Login extends Component {
                         </div>
                      </h2>
                      <div className="header-login-button-container">
-                        <button className="header-login-button btn btn-default">Get Started</button>
+                        <button onClick={() => {this.props.showLoginModal()}} className="header-login-button btn btn-default">Get Started</button>
                      </div>
                   </div>
                </header>
             </div>
-            <LoginModal />
+            {viewLoginModal ? <LoginModal /> : null}
          </div>
       )
    }
 }
-function mapStateToProps(state) {
-   return state.user
+const mapStateToProps = ({user, modal}) => {
+   return {
+      user: user.user,
+      viewLoginModal: modal.viewLoginModal
+   }
 }
 
-const mapDispatchToProps = {
-   getUser
-}
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+export default withRouter(connect(mapStateToProps, {showLoginModal, getUser})(Login))

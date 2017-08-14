@@ -15,16 +15,33 @@
    background: none;
 }
 .modal-container .panel-heading {
-   background-color: #222;
+   background-color: #337ab7;
    color: #fff;
 }
-.login .panel-body {
+.modal-container .panel-body {
    padding: 10%;
-   background-color: #bbb;
+   background: #fff
 }
-.login .panel-body div {
+.modal-container .panel-body div {
    margin: 5%;
 }
-.github-login, .guest-login {
+.login .modal-container .btn.btn-default {
+}
+.login .modal-container .github-login.btn.btn-default {
    width: 80%;
+   background: #222;
+   position: relative;
+}
+.login .modal-container .guest-login.btn.btn-success {
+   width: 80%;
+}
+.github-login svg {
+   fill: #fff;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+}
+.github-login h4 {
+   display: inline-block;
+   margin-left: 40px;
 }

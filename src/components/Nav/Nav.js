@@ -60,9 +60,4 @@ const mapStateToProps = ({user}) => {
    }
 }
 
-const mapDispatchToProps = dispatch => {
-   return {
-      logoutUser: () => {dispatch(logoutUser)}
-   }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Nav)
+export default connect(mapStateToProps, {logoutUser})(Nav)
