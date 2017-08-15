@@ -28,7 +28,7 @@ function Nav({logoutUser, github_username, github_avatar, match}) {
                         github_username === 'guestuser'
                         ?
                         <a href="/auth/github">
-                           <div className="hidden-xs login-container" style={{backgroundImage: github_avatar}}>
+                           <div className="hidden-xs login-container" style={{backgroundImage: `url(${github_avatar})`}}>
                               <div className="login-link">
                                  <p>Login</p>
                               </div>
@@ -37,7 +37,7 @@ function Nav({logoutUser, github_username, github_avatar, match}) {
                         </a>
                         :
                         <a onClick={e => {e.preventDefault(); logoutUser()}} >
-                           <div className="hidden-xs login-container" style={{backgroundImage: github_avatar}}>
+                           <div className="hidden-xs login-container" style={{backgroundImage: `url(${github_avatar})`}}>
                               <div className="login-link">
                                  <p>Logout</p>
                               </div>

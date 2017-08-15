@@ -102,7 +102,6 @@ export function updateQuery(query) {
 }
 
 export default function sqlReducer(state = initialState, action) {
-   console.log(action.type)
    switch(action.type) {
       case FETCHING_DATA: 
          return Object.assign({}, state, {fetchingData: true})
