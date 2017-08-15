@@ -2,20 +2,43 @@
    margin-bottom: 0;
 }
 .navbar a {
-   cursor: pointer
-}
-.profile-container {
-   background: #fff;
-   height: 40px;
-   width: 40px;
-   margin-top: 5px;
    cursor: pointer;
 }
-.profile-container img{
-   width: 100%;
-   height: auto;
+.navbar-brand {
+   padding: 0;
 }
-
+.login-container {
+   position: absolute;
+   top: 8px;
+   right: 15px;
+   height: 34px;
+   width: 34px;
+   background: #fff;
+   background-size: cover; 
+}
+.login-link {
+   opacity: 0;
+   background: hsla(0, 0%, 0%, 0.75);
+   position: absolute;
+   height: 100%;
+   width: 100%;
+}
+.login-link p {
+   position: absolute;
+   width: 100%;
+   top: 50%;
+   transform: translateY(-50%);
+   text-align: center;
+}
+.login-link:hover {
+   opacity: 1;
+   transition: 1s;
+}
+.brand-logo {
+   height: 50px;
+   width: 150px;
+   background: url("./pg-logo.png") center center no-repeat / contain
+}
 .profile-container .auth-link {
    padding: 0
 }

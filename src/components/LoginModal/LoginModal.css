@@ -1,0 +1,47 @@
+.modal-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100%;
+   background: hsla(0, 0%, 0%, 0.5);
+}
+.modal-container .modal-body {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+}
+.modal-container .panel.panel-default {
+   background: none;
+}
+.modal-container .panel-heading {
+   background-color: #337ab7;
+   color: #fff;
+}
+.modal-container .panel-body {
+   padding: 10%;
+   background: #fff
+}
+.modal-container .panel-body div {
+   margin: 5%;
+}
+.login .modal-container .btn.btn-default {
+}
+.login .modal-container .github-login.btn.btn-default {
+   width: 80%;
+   background: #222;
+   position: relative;
+}
+.login .modal-container .guest-login.btn.btn-success {
+   width: 80%;
+}
+.github-login svg {
+   fill: #fff;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+}
+.github-login h4 {
+   display: inline-block;
+   margin-left: 40px;
+}

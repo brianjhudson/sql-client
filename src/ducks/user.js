@@ -2,7 +2,10 @@ import axios from 'axios'
 
 // Initial State
 const initialState = {
-   user: {github_avatar: "https://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg"}
+   user: {
+      github_username: 'guestuser',
+      github_avatar: "https://www.clker.com/cliparts/5/9/4/c/12198090531909861341man%20silhouette.svg"
+   }
 }
 
 // Actions

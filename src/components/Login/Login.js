@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router'
 import {connect} from 'react-redux'
 import {getUser} from '../../ducks/user'
+import {showLoginModal} from '../../ducks/modal'
 
+import LoginModal from '../LoginModal/LoginModal'
 import './Login.css'
 
 class Login extends Component {
@@ -13,45 +15,42 @@ class Login extends Component {
    }
 
    componentWillReceiveProps(nextProps) {
-      console.log(nextProps)
       if (nextProps.user.id && nextProps.user.github_username !== 'guestuser') {
          this.props.history.push('/dashboard')
       }
    }
    render() {
+      const {viewLoginModal, showLoginModal} = this.props
       return (
          <div className="login container-fluid">
             <div className="row">
-               <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-                  <div className="panel panel-default">
-                     <div className="panel-heading">
-                        <h2>Login</h2>
-                     </div>
-                     <div className="panel-body">
-                        <h4>Please login with Github to save your work</h4>
-                        <div className="row">
-                           <a className="github-login btn btn-default" href="/auth/github">
-                              <h4>Login with Github</h4>
-                           </a>                        
+               <header className="col-md-8 col-md-offset-2">
+                  <div className="header-marquee">
+                     <h1 className="header-title">
+                        Come learn <span className="header-title-postgres">PostgreSQL</span> with us!
+                     </h1>
+                     <h2 className="header-subtitle">
+                        <div className="header-subtitle-typing">
+                           <span className="header-subtitle-keyword">select</span>&nbsp;fun&nbsp;
+                           <span className="header-subtitle-keyword">from</span> sql;
                         </div>
-                        <div className="row">
-                           <Link className="guest-login btn btn-default" to="/dashboard">
-                              <h4>Enter as Guest</h4>
-                           </Link>
-                        </div>
+                     </h2>
+                     <div className="header-login-button-container">
+                        <button onClick={() => {this.props.showLoginModal()}} className="header-login-button btn btn-default">Get Started</button>
                      </div>
                   </div>
-               </div>
+               </header>
             </div>
+            {viewLoginModal ? <LoginModal /> : null}
          </div>
       )
    }
 }
-function mapStateToProps(state) {
-   return state.user
+const mapStateToProps = ({user, modal}) => {
+   return {
+      user: user.user,
+      viewLoginModal: modal.viewLoginModal
+   }
 }
 
-const mapDispatchToProps = {
-   getUser
-}
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+export default withRouter(connect(mapStateToProps, {showLoginModal, getUser})(Login))
